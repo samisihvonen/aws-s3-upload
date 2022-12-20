@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>S3 Object Storage Upload with Node.js</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>S3 Object Storage Upload with Node.js</h2>
+      <form id="uploadForm" enctype="multipart/form-data">
+        <div class="form-group">
+          <input
+            type="text"
+            id="fname"
+            name="fname"
+            class="input-field"
+            placeholder="etunimi"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            id="lname"
+            name="lname"
+            class="input-field"
+            placeholder="sukunimi"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="text"
+            id="email"
+            name="email"
+            class="input-field"
+            placeholder="email"
+          />
+        </div>
+        <div class="form-group">
+          <input type="file" multiple name="avatar" id="uploadFilesInput" />
+        </div>
+        <div class="form-group">
+          <input id="submitButton" type="submit" value="submit" />
+        </div>
+      </form>
+      <div class="form-group">
+        <div id="uploadMessage" class="message"></div>
+        <label id="resetForm" class="reset">
+          <span>Click Here to Reset the Form</span>
+        </label>
+      </div>
+    </div>
+    <script src="../js/upload.js"></script>
+  </body>
+</html>
