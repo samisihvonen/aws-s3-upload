@@ -10,7 +10,7 @@ form.addEventListener('submit', async (e) => {
   e.preventDefault()
   const formData = new FormData()
   formData.append('fname', fname.value)
-  formData.append('lname', fname.value)
+  formData.append('lname', lname.value)
   formData.append('email', email.value)
   for (let i = 0; i < fileInput.files.length; i++) {
     formData.append('avatar', fileInput.files[i])

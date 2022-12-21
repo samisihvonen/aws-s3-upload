@@ -16,6 +16,7 @@ const userSchema = new mongoose.Schema(
     },
     email: {
       type: String,
+      unique: [true, 'Email is already taken'],
       required: [true, 'Please add an email']
     },
     avatar: { image: Buffer, contentType: String }

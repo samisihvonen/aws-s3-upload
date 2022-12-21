@@ -7,13 +7,12 @@ const createUser = async (req, res) => {
   try {
     const { fname, lname, email } = req.body
 
-    console.log('file:', req.file[0])
     const user = new User({
       _id: new mongoose.Types.ObjectId(),
-      fname: fname,
       lname: lname,
-      email: email
-      // avatar: req.files['avatar'][0]
+      fname: fname,
+      email: email,
+      avatar: req.file.originalname
     })
     await user.save()
     res.status(201).json({

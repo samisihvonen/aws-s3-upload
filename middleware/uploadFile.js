@@ -1,14 +1,16 @@
+const env = require('../config/env')
 const aws = require('aws-sdk')
 const multer = require('multer')
 const multerS3 = require('multer-s3')
 const { S3Client } = require('@aws-sdk/client-s3')
+const sharp = require('sharp')
 const path = require('path')
 
 const credentials = {
-  region: 'eu-north-1',
+  region: env.awsRegion,
   credentials: {
-    accessKeyId: 'AKIA2LEM2G472A5F62O7',
-    secretAccessKey: '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'
+    accessKeyId: env.awsAccessKey,
+    secretAccessKey: env.awsSecretAccessKey
   }
 }
 
@@ -26,7 +28,7 @@ var uploadS3 = multer({
   storage: multerS3({
     fileFilter,
     s3: s3,
-    bucket: 'eternia-s3',
+    bucket: env.awsBucket,
     metadata: function (req, file, cb) {
       cb(null, { fieldName: file.fieldname })
     },
@@ -36,7 +38,7 @@ var uploadS3 = multer({
         Date.now() +
         path.extname(file.originalname)
       file.originalname = filename
-      cb(null, filename)
+      cb(null, 'images/'+ filename)
     }
   })
 })
