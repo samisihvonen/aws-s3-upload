@@ -1,5 +1,6 @@
 const User = require('../models/userModel.js')
 const mongoose = require('mongoose')
+const resizeAndUploadToS3 = require('../middleware/uploadFile')
 const dotenv = require('dotenv')
 dotenv.config()
 

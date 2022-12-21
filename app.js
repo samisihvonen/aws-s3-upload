@@ -50,16 +50,9 @@ app.get('/', (req, res) => {
 })
 
 app.use(express.static(path.join(__dirname, '/public')))
-// app.use('/uploads', express.static(path.join('uploads')))
-
-app.use('/uploads', express.static('uploads'))
 
 // routes
 app.use('/api', userRoutes)
-
-// app.get('/', (req, res) => {
-//   res.status(200).json({ message: 'Welcome to my API' })
-// })
 
 const PORT = process.env.PORT || 5000
 
